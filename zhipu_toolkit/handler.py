@@ -9,17 +9,9 @@ from zhipuai import ZhipuAI
 from zhenxun.services.log import logger
 
 require("nonebot_plugin_alconna")
-from nonebot.adapters.onebot.v11 import (
-    Bot,
-    GroupMessageEvent,
-    Event,
-    Message,
-    MessageEvent,
-    MessageSegment,
-)
+
 from nonebot.adapters.onebot.v11.permission import GROUP_ADMIN, GROUP_OWNER
 from nonebot.permission import SUPERUSER
-from nonebot.rule import is_type
 from nonebot_plugin_alconna import Image, Match, Text, on_alconna
 
 from .config import ChatConfig, nicknames
@@ -31,13 +23,6 @@ from .data_source import (
     submit_task_to_zhipuai,
 )
 
-
-async def is_to_me(event: Event) -> bool:
-    msg = event.get_message().extract_plain_text()
-    for nickname in nicknames:
-        if nickname in msg:
-            return True
-    return event.is_tome()
 
 
 draw_pic = on_alconna(

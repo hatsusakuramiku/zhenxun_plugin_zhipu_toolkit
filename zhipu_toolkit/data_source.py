@@ -13,6 +13,7 @@ from nonebot.adapters.onebot.v11 import (
     MessageSegment,
 )
 from nonebot_plugin_alconna import Text, Video
+from nonebot_plugin_alconna.uniseg import UniMsg, UniMessage
 from pydantic import BaseModel
 from zhipuai import ZhipuAI
 
